@@ -6,15 +6,6 @@ pipeline {
             steps {
                 echo 'Build Step 1'
             }
-            steps {
-                echo 'Build Step 2'
-            }
-            steps {
-                echo 'Build Step 3'
-            }
-            steps {
-                echo 'Build Step 4'
-            }
         }
 
         stage('Test') {

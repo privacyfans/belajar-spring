@@ -6,6 +6,12 @@ pipeline {
         COMPANY = "BWS"
         APP = credentials("irfan_credentials_id")
     }
+
+    options {
+        disableConcurrentBuilds()
+        timeout(time: 10, unit: 'SECONDS')
+    }
+    
     stages {
         stage('Pre-Build') {
             steps {

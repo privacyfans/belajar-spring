@@ -1,9 +1,15 @@
 pipeline {
     agent any
 
+    environtment{
+        AUTHOR = "Irfan Luthfi",
+        COMPANY = "BWS",
+    }
     stages {
         stage('Pre-Build') {
             steps {
+               echo("AUTHOR: ${AUTHOR}")
+               echo("COMPANY: ${COMPANY}")
                echo("Start Job: ${env.JOB_NAME}")
                echo("Start Job: ${env.BUILD_NUMBER}")
                echo("Start Job: ${env.BRANCH_NAME}")

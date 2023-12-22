@@ -88,7 +88,7 @@ pipeline {
                 }
             }
             steps {
-                echo "TARGET_ENV: ${params.TARGET_ENV}"
+                echo "Deploy To: ${TARGET_ENV}"
                 echo 'Deploy 1'
                 echo 'Deploy 2'
                 echo 'Deploy 3'

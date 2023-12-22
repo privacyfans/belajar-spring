@@ -4,9 +4,9 @@ pipeline {
     stages {
         stage('Build') {
             steps {
-                echo 'Build Step 1'
-                echo 'Build Step 2'
-                echo 'Build Step 3'
+                echo 'Build Start'
+                sleep(10)
+                echo 'Build Stop'
             }
         }
 

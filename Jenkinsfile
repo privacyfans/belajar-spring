@@ -4,7 +4,7 @@ pipeline {
     environment{
         AUTHOR = "Irfan Luthfi"
         COMPANY = "BWS"
-        APP = credentials("slack-token-irfan")
+        APP = credentials("irfan_credentials_id")
     }
     stages {
         stage('Pre-Build') {

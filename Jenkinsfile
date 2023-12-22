@@ -17,13 +17,13 @@ pipeline {
     //     pollSCM("*/5 * * * *")
     //     upstream(upstreamProjects: 'job1,job2', threshold: hudson.model.Result.SUCCESS)
     // }
-    // parameters {
-    //     string(name: 'NAME', defaultValue: 'Guest', description: 'Whats is your name?')
-    //     text(name: 'DESCRIPTION', defaultValue: '', description: 'Tell me about you')
-    //     booleanParam(name: 'DEPLOY', defaultValue: false, description: 'Need too deploy?')
-    //     choice(name: 'SOCIAL_MEDIA', choices: ['Instagram','Facebook'], description: 'Whitch social media?')
-    //     password(name: 'SECRET', defaultValue: '', description: 'Encrypt Key')
-    // }
+    parameters {
+        //string(name: 'NAME', defaultValue: 'Guest', description: 'Whats is your name?')
+        //text(name: 'DESCRIPTION', defaultValue: '', description: 'Tell me about you')
+        booleanParam(name: 'DEPLOY', defaultValue: false, description: 'Need too deploy?')
+        //choice(name: 'SOCIAL_MEDIA', choices: ['Instagram','Facebook'], description: 'Whitch social media?')
+        //password(name: 'SECRET', defaultValue: '', description: 'Encrypt Key')
+    }
 
 
     stages {
@@ -79,16 +79,16 @@ pipeline {
         }
 
         stage('Deploy') {
-            input {
-                message "Can we deploy?"
-                ok "Yes, of course."
-                submitter "Irfan Luthfi Submitter"
-                parameters {
-                    choice(name: 'TARGET_ENV',choices: ['DEV', 'QA','PROD'], description: 'We will deploy to?')
-                }
-            }
+            // input {
+            //     message "Can we deploy?"
+            //     ok "Yes, of course."
+            //     submitter "Irfan Luthfi Submitter"
+            //     parameters {
+            //         choice(name: 'TARGET_ENV',choices: ['DEV', 'QA','PROD'], description: 'We will deploy to?')
+            //     }
+            // }
             steps {
-                echo "Deploy To: ${TARGET_ENV}"
+                //echo "Deploy To: ${TARGET_ENV}"
                 echo 'Deploy 1'
                 echo 'Deploy 2'
                 echo 'Deploy 3'

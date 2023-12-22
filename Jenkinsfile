@@ -11,7 +11,8 @@ pipeline {
             steps {
                echo("AUTHOR: ${AUTHOR}")
                echo("COMPANY: ${COMPANY}")
-               echo("TOKEN: ${APP}")
+               echo("USERNAME: ${APP_USR}")
+               echo("PASSWORD: ${APP_PSW}")
                echo("Start Job: ${env.JOB_NAME}")
                echo("Start Job: ${env.BUILD_NUMBER}")
                echo("Start Job: ${env.BRANCH_NAME}")

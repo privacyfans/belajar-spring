@@ -6,7 +6,7 @@ pipeline {
             steps {
                echo("Start Job: ${env.JOB_NAME}")
                echo("Start Job: ${env.BUILD_NUMBER}")
-               echo("Start Job: ${env.BUILD_NAME}")
+               echo("Start Job: ${env.BRANCH_NAME}")
             }
         }
 

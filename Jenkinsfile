@@ -10,7 +10,7 @@ pipeline {
                     }
                 }
                 echo 'Build Start'
-                //sh("./mvnw clean compile test-compile")
+                sh("./mvnw clean compile test-compile")
                 echo 'Build Stop'
             }
         }

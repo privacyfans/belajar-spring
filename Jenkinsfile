@@ -11,8 +11,27 @@ pipeline {
         disableConcurrentBuilds()
         timeout(time: 10, unit: 'SECONDS')
     }
-    
+
+    parameters {
+        string(name: 'NAME', defaultValue: 'Guest', description: 'Whats is your name?')
+        text(name: 'DESCRIPTION', defaultValue: '', description: 'Tell me about you')
+        booleanParam(name: 'DEPLOY', defaultValue: false, description: 'Need too deploy?')
+        choice(name: 'SOCIAL_MEDIA', choices: ['Instagram','Facebook'], description: 'Whitch social media?')
+        password(name: 'SECRET', defaultValue: '', description: 'Encrypt Key')
+    }
+
+
     stages {
+        stage('Parameter') {
+            steps {
+               echo("Hello: ${params.NAME}")
+               echo("Description: ${params.DESCRIPTION}")
+               echo("Deploy: ${params.DEPLOY}")
+               echo("Social Media: ${params.SOCIAL_MEDIA}")
+               echo("Secret: ${params.SECRET}")
+            }
+        }
+        
         stage('Pre-Build') {
             steps {
                echo("AUTHOR: ${AUTHOR}")

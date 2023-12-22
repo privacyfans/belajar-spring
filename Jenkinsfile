@@ -94,6 +94,17 @@ pipeline {
                 echo 'Deploy 3'
             }
         }
+
+        stage('Release') {
+           when {
+            expression {
+                return params.DEPLOY;
+            }
+           }
+            steps {
+              echo "Release it"
+            }
+        }
     }
 
     post{

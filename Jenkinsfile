@@ -40,17 +40,17 @@ pipeline {
             stages('Prepare Java') {
                 stage {
                     steps {
-                            echo "Prepare Java"
-                        }
+                        echo "Prepare Java"
+                    }
                 }
                 stage('Prepare Maven') {
                     steps {
                         echo "Prepare Maven"
                     }
                 }
+            }
         }
-            
-        }
+
         stage('Pre-Build') {
             steps {
                echo("AUTHOR: ${AUTHOR}")

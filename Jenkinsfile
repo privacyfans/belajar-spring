@@ -37,14 +37,16 @@ pipeline {
         //     }
         // }
         stage('Preparation') {
-            stage('Prepare Java') {
-                steps {
-                    echo "Prepare Java"
-                }
-                    stage('Prepare Maven') {
-                        steps {
-                            echo "Prepare Maven"
+            stages('Prepare Java') {
+                stage {
+                    steps {
+                            echo "Prepare Java"
                         }
+                }
+                stage('Prepare Maven') {
+                    steps {
+                        echo "Prepare Maven"
+                    }
                 }
         }
             

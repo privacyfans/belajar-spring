@@ -4,8 +4,13 @@ pipeline {
     stages {
         stage('Build') {
             steps {
+                script{
+                    for (int i = 0; i < 10; i++) {
+                        echo ("Script ${i}")
+                    }
+                }
                 echo 'Build Start'
-                sh("mvn clean compile test-compile")
+                //sh("./mvnw clean compile test-compile")
                 echo 'Build Stop'
             }
         }
@@ -13,7 +18,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Test 1'
-                sh("mvn test")
+                sh("./mvnw test")
                 echo 'Test 3'
             }
         }

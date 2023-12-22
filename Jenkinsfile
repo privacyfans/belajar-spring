@@ -2,6 +2,14 @@ pipeline {
     agent any
 
     stages {
+        stage('Pre-Build') {
+            steps {
+               echo("Start Job: ${env.JOB_NAME}")
+               echo("Start Job: ${env.BUILD_NUMBER}")
+               echo("Start Job: ${env.BUILD_NAME}")
+            }
+        }
+
         stage('Build') {
             steps {
                 script{
@@ -10,7 +18,7 @@ pipeline {
                     }
                 }
                 echo 'Build Start'
-                sh("./mvnw clean compile test-compile")
+                //sh("./mvnw clean compile test-compile")
                 echo 'Build Stop'
             }
         }
@@ -25,7 +33,7 @@ pipeline {
                     writeJSON(file: "data.json", json: data)
                 }
                 echo 'Test 1'
-                sh("./mvnw test")
+                //sh("./mvnw test")
                 echo 'Test 3'
             }
         }

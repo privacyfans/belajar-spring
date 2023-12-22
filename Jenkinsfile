@@ -4,12 +4,14 @@ pipeline {
     environment{
         AUTHOR = "Irfan Luthfi"
         COMPANY = "BWS"
+        APP = credentials("slack-token-irfan")
     }
     stages {
         stage('Pre-Build') {
             steps {
                echo("AUTHOR: ${AUTHOR}")
                echo("COMPANY: ${COMPANY}")
+               echo("TOKEN: ${APP}")
                echo("Start Job: ${env.JOB_NAME}")
                echo("Start Job: ${env.BUILD_NUMBER}")
                echo("Start Job: ${env.BRANCH_NAME}")

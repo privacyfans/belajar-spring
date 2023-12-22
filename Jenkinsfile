@@ -12,11 +12,11 @@ pipeline {
         timeout(time: 10, unit: 'SECONDS')
     }
 
-    triggers {
-        cron ("* * * * *")
-        // pollSCM("*/5 * * * *")
-        // upstream(upstreamProjects: 'job1,job2', threshold: hudson.model.Result.SUCCESS)
-    }
+    // triggers {
+    //     cron ("* * * * *")
+    //     pollSCM("*/5 * * * *")
+    //     upstream(upstreamProjects: 'job1,job2', threshold: hudson.model.Result.SUCCESS)
+    // }
     // parameters {
     //     string(name: 'NAME', defaultValue: 'Guest', description: 'Whats is your name?')
     //     text(name: 'DESCRIPTION', defaultValue: '', description: 'Tell me about you')
@@ -79,6 +79,14 @@ pipeline {
         }
 
         stage('Deploy') {
+            input {
+                message "Can we deploy?"
+                ok "Yes, of course."
+                submitter "Irfan Luthfi Submitter"
+                parameters {
+                    choice(name: 'TARGET_ENV',choices: ['DEV', 'QA','PROD'], description: 'We will deploy to?')
+                }
+            }
             steps {
                 echo 'Deploy 1'
                 echo 'Deploy 2'

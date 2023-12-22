@@ -17,13 +17,13 @@ pipeline {
     //     pollSCM("*/5 * * * *")
     //     upstream(upstreamProjects: 'job1,job2', threshold: hudson.model.Result.SUCCESS)
     // }
-    parameters {
+    //parameters {
         //string(name: 'NAME', defaultValue: 'Guest', description: 'Whats is your name?')
         //text(name: 'DESCRIPTION', defaultValue: '', description: 'Tell me about you')
-        booleanParam(name: 'DEPLOY', defaultValue: false, description: 'Need too deploy?')
+        //booleanParam(name: 'DEPLOY', defaultValue: false, description: 'Need too deploy?')
         //choice(name: 'SOCIAL_MEDIA', choices: ['Instagram','Facebook'], description: 'Whitch social media?')
         //password(name: 'SECRET', defaultValue: '', description: 'Encrypt Key')
-    }
+    //}
 
 
     stages {
@@ -36,7 +36,19 @@ pipeline {
         //        echo("Secret: ${params.SECRET}")
         //     }
         // }
-        
+        stage('Preparation') {
+            stage('Prepare Java') {
+                steps {
+                    echo "Prepare Java"
+                }
+                    stage('Prepare Maven') {
+                        steps {
+                            echo "Prepare Maven"
+                        }
+                }
+        }
+            
+        }
         stage('Pre-Build') {
             steps {
                echo("AUTHOR: ${AUTHOR}")
@@ -95,16 +107,17 @@ pipeline {
             }
         }
 
-        stage('Release') {
-           when {
-            expression {
-                return params.DEPLOY;
-            }
-           }
-            steps {
-              echo "Release it"
-            }
-        }
+        // stage('Release') {
+        //    when {
+        //     expression {
+        //         return params.DEPLOY;
+        //     }
+        //    }
+        //     steps {
+        //       echo "Release it"
+        //     }
+        // }
+        
     }
 
     post{

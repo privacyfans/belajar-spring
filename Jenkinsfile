@@ -5,7 +5,7 @@ pipeline {
         stage('Build') {
             steps {
                 echo 'Build Start'
-                sh("mvmw clean compile test-compile")
+                sh("./mvmw clean compile test-compile")
                 echo 'Build Stop'
             }
         }
@@ -13,7 +13,7 @@ pipeline {
         stage('Test') {
             steps {
                 echo 'Test 1'
-                sh("mvnw test")
+                sh("./mvnw test")
                 echo 'Test 3'
             }
         }

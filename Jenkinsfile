@@ -2,8 +2,8 @@ pipeline {
     agent any
 
     environtment{
-        AUTHOR = "Irfan Luthfi",
-        COMPANY = "BWS",
+        AUTHOR = "Irfan Luthfi"
+        COMPANY = "BWS"
     }
     stages {
         stage('Pre-Build') {

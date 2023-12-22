@@ -13,29 +13,29 @@ pipeline {
     }
 
     triggers {
-        cron ("*/5 * * * *")
+        cron ("* * * * *")
         // pollSCM("*/5 * * * *")
         // upstream(upstreamProjects: 'job1,job2', threshold: hudson.model.Result.SUCCESS)
     }
-    parameters {
-        string(name: 'NAME', defaultValue: 'Guest', description: 'Whats is your name?')
-        text(name: 'DESCRIPTION', defaultValue: '', description: 'Tell me about you')
-        booleanParam(name: 'DEPLOY', defaultValue: false, description: 'Need too deploy?')
-        choice(name: 'SOCIAL_MEDIA', choices: ['Instagram','Facebook'], description: 'Whitch social media?')
-        password(name: 'SECRET', defaultValue: '', description: 'Encrypt Key')
-    }
+    // parameters {
+    //     string(name: 'NAME', defaultValue: 'Guest', description: 'Whats is your name?')
+    //     text(name: 'DESCRIPTION', defaultValue: '', description: 'Tell me about you')
+    //     booleanParam(name: 'DEPLOY', defaultValue: false, description: 'Need too deploy?')
+    //     choice(name: 'SOCIAL_MEDIA', choices: ['Instagram','Facebook'], description: 'Whitch social media?')
+    //     password(name: 'SECRET', defaultValue: '', description: 'Encrypt Key')
+    // }
 
 
     stages {
-        stage('Parameter') {
-            steps {
-               echo("Hello: ${params.NAME}")
-               echo("Description: ${params.DESCRIPTION}")
-               echo("Deploy: ${params.DEPLOY}")
-               echo("Social Media: ${params.SOCIAL_MEDIA}")
-               echo("Secret: ${params.SECRET}")
-            }
-        }
+        // stage('Parameter') {
+        //     steps {
+        //        echo("Hello: ${params.NAME}")
+        //        echo("Description: ${params.DESCRIPTION}")
+        //        echo("Deploy: ${params.DEPLOY}")
+        //        echo("Social Media: ${params.SOCIAL_MEDIA}")
+        //        echo("Secret: ${params.SECRET}")
+        //     }
+        // }
         
         stage('Pre-Build') {
             steps {
